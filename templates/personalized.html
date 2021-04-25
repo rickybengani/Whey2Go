@@ -5,8 +5,10 @@
     </head>
     <body>
         <h1>Personalized Recommendations: </h1>
-        {% for i in range(10): %}
-            <p>{{personalized[i]}}</p>
+        {% for i in range(size): %}
+            {% for j in personalized[i]: %}
+                <p>{{j}}</p>
+            {% endfor %}
         {% endfor %}
     </body>
 </html>
