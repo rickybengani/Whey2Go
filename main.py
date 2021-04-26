@@ -17,7 +17,7 @@ combined_df = combined_df.drop(['RecipeID', 'RecipeName'], axis=1)
 
 @app.route('/')
 def home():
-    return render_template("layout.html")
+    return render_template("layout.html", non_personalized=non_personalized)
 
 @app.route("/nonpersonalized", methods=["POST", "GET"])
 def nonpersonalized():
