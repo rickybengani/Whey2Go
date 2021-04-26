@@ -10,8 +10,7 @@ train_df = pd.read_csv('./interactions_train.csv')
 personalized_df = pd.read_csv('./personalized.csv')
 personalized_df[['temp1', 'Recipe', 'temp2']] = personalized_df['Recipe'].str.split("\'", expand=True)
 personalized_df = personalized_df.drop(['temp1', 'temp2'], axis=1)
-# personalized_df = personalized_df.set_index('Recipe')
-print(personalized_df.head())
+# print(personalized_df.head())
 
 @app.route('/', methods=["POST", "GET"])
 def home():

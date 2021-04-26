@@ -1,16 +1,41 @@
 <!doctype html>
 <html>
     <head>
-        <title>Home</title>
+        <!-- <title>Home</title> -->
+        <title>Non-personalized</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            .bg-1 {
+              background-color: #84d6c6; /* Green */
+              color: #000000;
+            }
+            input[type=submit] {
+                background-color: #00c3ff;
+                border: none;
+                color: rgb(0, 0, 0);
+                padding: 10px 32px;
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
-        <h1>Top 10: </h1>
-        <form action="#" method="post">
-            {% for i in range(10): %}
-                <p>{{i+1}}. {{non_personalized[i]}}</p>
-                <p><input type="number" name="ratings[]" /></p>
-            {% endfor %}
-            <p><input type="submit" value="submit" /></p>
-        </form>
+        <div class="container-fluid bg-1 text-center">
+            <h3>Rate These Recipes</h3>
+            <br>
+            <!-- <h1>Top 10: </h1> -->
+            <form action="#" method="post">
+                {% for i in range(10): %}
+                    <h5>{{i+1}}. {{non_personalized[i]}}</h5>
+                    <p><input type="number" name="ratings[]" min="0" max="1"/></p>
+                {% endfor %}
+                <p><input type="submit" value="Submit" /></p>
+            </form>
+        </div>
     </body>
 </html>
