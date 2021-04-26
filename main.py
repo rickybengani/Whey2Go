@@ -15,8 +15,12 @@ top_recipes_df = pd.read_csv('./top_recipes.csv')
 combined_df = pd.merge(top_recipes_df, personalized_df, how='inner', left_on='RecipeName', right_on='Recipe')
 combined_df = combined_df.drop(['RecipeID', 'RecipeName'], axis=1)
 
-@app.route('/', methods=["POST", "GET"])
+@app.route('/')
 def home():
+    return render_template("layout.html")
+
+@app.route("/nonpersonalized", methods=["POST", "GET"])
+def nonpersonalized():
     # Code to generate non-personalized recipes #
     non_personalized = []
     for i in range(10):
@@ -31,7 +35,6 @@ def home():
         return redirect(url_for("personalized"))
     else:
         return render_template("nonpersonalized.html", non_personalized=non_personalized)
-
 
 @app.route("/personalized")
 def personalized():
